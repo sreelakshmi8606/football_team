@@ -7,7 +7,7 @@ class StudenteditorInitial extends StudenteditorState {}
 class Fetching extends StudenteditorState {}
 
 class DataReady extends StudenteditorState {
-  final List<Map> data;
+  final List<StudentProDataModel> data;
   DataReady({required this.data});
 }
 

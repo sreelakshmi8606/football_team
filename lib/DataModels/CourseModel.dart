@@ -27,7 +27,7 @@ class CourseDataModel {
   Map<String, dynamic> toMap() {
     return {
       'Course': Course,
-      'sessions': sessions?.map((x) => x?.toMap())?.toList(),
+      'sessions': sessions?.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -57,3 +57,4 @@ class CourseDataModel {
   @override
   int get hashCode => Course.hashCode ^ sessions.hashCode;
 }
+//'sessions': sessions?.map((x) => x?.toMap())?.toList(),
