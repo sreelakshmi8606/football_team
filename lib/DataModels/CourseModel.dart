@@ -1,53 +1,49 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
 class CourseDataModel {
   String? Course;
-  List<SessionDataModel> sessions;
+  List<SessionDataModel> ? sessions;
   CourseDataModel.empty();
   CourseDataModel({
-    required this.Course,
-    required this.sessions
+    this.Course,
+    this.sessions,
   });
+
+
   CourseDataModel copyWith({
     String? Course,
-    String? listOfSession,
-
+    List<SessionDataModel> ? sessions,
   }) {
     return CourseDataModel(
       Course: Course ?? this.Course,
-      sessions: SessionDataModel??this.sessions
-
+      sessions: sessions ?? this.sessions,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'Course': Course,
-      'listOfSession':listOfSession,
+      'sessions': sessions?.map((x) => x?.toMap())?.toList(),
     };
   }
 
   factory CourseDataModel.fromMap(Map<String, dynamic> map) {
     return CourseDataModel(
       Course: map['Course'],
-        listOfSession:map['listOfSession']
+      sessions: map['sessions'] != null ? List<SessionDataModel> .from(map['sessions']?.map((x) => SessionDataModel .fromMap(x))) : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory CourseDataModel.fromJson(String source) =>
-      CourseDataModel.fromMap(json.decode(source));
+  factory CourseDataModel.fromJson(String source) => CourseDataModel.fromMap(json.decode(source));
 
   @override
-  String toString() {
-    return 'CourseDataModel('
-        'Course: $Course,'
-    'listOfSession:$listOfSession,'
-        ')';
-  }
+  String toString() => 'CourseDataModel(Course: $Course, sessions: $sessions)';
 
   @override
   bool operator ==(Object other) {
@@ -55,12 +51,9 @@ class CourseDataModel {
 
     return other is CourseDataModel &&
         other.Course == Course &&
-    other.listOfSession==listOfSession;
+        listEquals(other.sessions, sessions);
   }
 
   @override
-  int get hashCode {
-    return Course.hashCode ^
-    listOfSession.hashCode;
-  }
+  int get hashCode => Course.hashCode ^ sessions.hashCode;
 }

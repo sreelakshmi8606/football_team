@@ -99,4 +99,25 @@ class WebserviceHelper {
     dynamic data = await dio.get(url);
     return data;
   }
+  Future<List> getSessionList() async {
+    List dvals = [];
+    String url = "http://31.220.109.198:8050/GetHatcheryMasterData";
+    try {
+      Response response = await dio.get(url);
+      print(url);
+      dynamic tdata = json.decode(response.data);
+      dvals = tdata['hits'];
+      print(tdata['hits']);
+    } catch (e) {
+      print('Exception');
+      print(e.toString());
+    }
+    return dvals;
+  }
+
+  Future<List<Map>> getSessionEditor() async {
+    String url = "";
+    dynamic data = await dio.get(url);
+    return data;
+  }
 }
