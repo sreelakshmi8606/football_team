@@ -139,16 +139,16 @@ class CoachDataModel {
   @override
   int get hashCode {
     return FirstName.hashCode ^
-    LastName.hashCode ^
-    Age.hashCode ^
-    Gender.hashCode ^
-    PhoneNumber.hashCode ^
-    Email.hashCode ^
-    Address.hashCode ^
-    Qualification.hashCode ^
-    Experience.hashCode ^
-    Achievements.hashCode ^
-    BloodGroup.hashCode ^
-    SalaryperHour.hashCode;
+        LastName.hashCode ^
+        Age.hashCode ^
+        Gender.hashCode ^
+        PhoneNumber.hashCode ^
+        Email.hashCode ^
+        Address.hashCode ^
+        Qualification.hashCode ^
+        Experience.hashCode ^
+        Achievements.hashCode ^
+        BloodGroup.hashCode ^
+        SalaryperHour.hashCode;
   }
 }

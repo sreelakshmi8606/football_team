@@ -3,10 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_team/Forms/SessionEditor.dart';
-import 'package:football_team/Forms/sessionEditor.dart';
-
 import 'package:football_team/sessionCubit/cubit/sessionlist_cubit.dart';
-
 
 class SessionList extends StatefulWidget {
   @override
@@ -14,7 +11,6 @@ class SessionList extends StatefulWidget {
 }
 
 class _SessionListState extends State<SessionList> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +20,8 @@ class _SessionListState extends State<SessionList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SessionEditor()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => SessionEditor()));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,

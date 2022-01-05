@@ -12,7 +12,8 @@ class StudenteditorCubit extends Cubit<StudenteditorState> {
   void fetchData() async {
     emit(Fetching());
     try {
-      final List<StudentProDataModel> data = (await web.getStudentEditor()).cast<StudentProDataModel>();
+      final List<StudentProDataModel> data =
+          (await web.getStudentEditor()).cast<StudentProDataModel>();
       emit(DataReady(data: data));
     } catch (e) {
       print(e.toString());
@@ -21,5 +22,4 @@ class StudenteditorCubit extends Cubit<StudenteditorState> {
       ));
     }
   }
-
 }

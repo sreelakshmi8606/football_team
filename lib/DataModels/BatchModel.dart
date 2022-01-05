@@ -10,21 +10,22 @@ class BatchDataModel {
   });
   BatchDataModel copyWith({
     String? Batch,
-
   }) {
     return BatchDataModel(
       Batch: Batch ?? this.Batch,
     );
   }
+
   Map<String, dynamic> toMap() {
     return {
       'Batch': Batch,
-          };
+    };
   }
+
   factory BatchDataModel.fromMap(Map<String, dynamic> map) {
     return BatchDataModel(
       Batch: map['Batch'],
-        );
+    );
   }
 
   String toJson() => json.encode(toMap());
@@ -43,12 +44,11 @@ class BatchDataModel {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is BatchDataModel &&
-        other.Batch == Batch ;
-          }
+    return other is BatchDataModel && other.Batch == Batch;
+  }
 
   @override
   int get hashCode {
-    return Batch.hashCode ;
-   }
+    return Batch.hashCode;
+  }
 }

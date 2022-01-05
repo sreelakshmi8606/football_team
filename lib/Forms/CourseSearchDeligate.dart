@@ -93,7 +93,6 @@ class CustomSearchDelegate extends SearchDelegate {
       BuildContext context, SessionDataModel Sessions, int index) {
     return InkWell(
       onTap: () async {
-
         close(
           context,
           SessionDataModel(
@@ -116,7 +115,6 @@ class CustomSearchDelegate extends SearchDelegate {
                     Sessions.Session!,
                     textAlign: TextAlign.left,
                   ),
-
                 ),
               ),
             ],
@@ -128,6 +126,7 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-   throw UnimplementedError();
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }

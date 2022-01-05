@@ -6,17 +6,16 @@ import 'package:football_team/DataModels/SessionDataModel.dart';
 
 class CourseDataModel {
   String? Course;
-  List<SessionDataModel> ? sessions;
+  List<SessionDataModel>? sessions;
   CourseDataModel.empty();
   CourseDataModel({
     this.Course,
     this.sessions,
   });
 
-
   CourseDataModel copyWith({
     String? Course,
-    List<SessionDataModel> ? sessions,
+    List<SessionDataModel>? sessions,
   }) {
     return CourseDataModel(
       Course: Course ?? this.Course,
@@ -34,13 +33,17 @@ class CourseDataModel {
   factory CourseDataModel.fromMap(Map<String, dynamic> map) {
     return CourseDataModel(
       Course: map['Course'],
-      sessions: map['sessions'] != null ? List<SessionDataModel> .from(map['sessions']?.map((x) => SessionDataModel .fromMap(x))) : null,
+      sessions: map['sessions'] != null
+          ? List<SessionDataModel>.from(
+              map['sessions']?.map((x) => SessionDataModel.fromMap(x)))
+          : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory CourseDataModel.fromJson(String source) => CourseDataModel.fromMap(json.decode(source));
+  factory CourseDataModel.fromJson(String source) =>
+      CourseDataModel.fromMap(json.decode(source));
 
   @override
   String toString() => 'CourseDataModel(Course: $Course, sessions: $sessions)';

@@ -21,4 +21,3 @@ class StudentlistCubit extends Cubit<StudentlistState> {
     }
   }
 }
-

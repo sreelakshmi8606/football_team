@@ -4,6 +4,7 @@ part of 'studentlist_cubit.dart';
 abstract class StudentlistState {}
 
 class StudentlistInitial extends StudentlistState {}
+
 class Fetching extends StudentlistState {}
 
 class FetchCompleted extends StudentlistState {

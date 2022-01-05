@@ -6,7 +6,6 @@ import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/Common/kboxdecor.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
-
 class SessionEditor extends StatefulWidget {
   late String Session;
   late int duration;
@@ -49,7 +48,7 @@ class _SessionEditorState extends State<SessionEditor> {
                         Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                           decoration: kBoxdecorationStyle,
                           child: TextFormField(
                             validator: (value) {
@@ -79,7 +78,7 @@ class _SessionEditorState extends State<SessionEditor> {
                         Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                           decoration: kBoxdecorationStyle,
                           child: TextFormField(
                             validator: (value) {
@@ -120,7 +119,7 @@ class _SessionEditorState extends State<SessionEditor> {
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
           session.Session = sessionnamecontroller.text;
-          session.duration= int.parse(durationcontroller.text);
+          session.duration = int.parse(durationcontroller.text);
           print('Data : ${session.toJson()}');
           await web.SessionRecord(model: session);
         },

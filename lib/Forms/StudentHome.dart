@@ -7,68 +7,68 @@ import 'package:football_team/DataModels/StudentPro.dart';
 import 'package:intl/intl.dart';
 
 class StudentHome extends StatefulWidget {
- late String FirstName;
-late  String LastName;
-  late DateTime  DOB;
+  late String FirstName;
+  late String LastName;
+  late DateTime DOB;
   late int Age;
- late String Gender;
+  late String Gender;
   late int PhoneNumber;
- late String  GuardianName;
- late int GuardianPhone;
- late String  SchoolName;
-late  String Address;
-   late String Email;
- late DateTime Admission;
-late  String Timeperiod;
-late  DateTime EndingDate;
- late double Fee;
- late double Height;
-late  double Weight;
- late String  SportsType;
- late String CoachName;
- late String  TeamName;
- late int  EmergencyNumber;
- late String RelationToPlayer;
- late String InsuranceCarrier;
- late String BloodGroup;
+  late String GuardianName;
+  late int GuardianPhone;
+  late String SchoolName;
+  late String Address;
+  late String Email;
+  late DateTime Admission;
+  late String Timeperiod;
+  late DateTime EndingDate;
+  late double Fee;
+  late double Height;
+  late double Weight;
+  late String SportsType;
+  late String CoachName;
+  late String TeamName;
+  late int EmergencyNumber;
+  late String RelationToPlayer;
+  late String InsuranceCarrier;
+  late String BloodGroup;
 
   @override
   _StudentHomeState createState() => _StudentHomeState();
 }
 
 class _StudentHomeState extends State<StudentHome> {
-   String ?gender;
-   String? bloodg;
+  String? gender;
+  String? bloodg;
   DateTime selectedDate = DateTime.now();
-late String dob;
-late String end;
-late String adm;
+  late String dob;
+  late String end;
+  late String adm;
 
-  TextEditingController FirstnameController =  TextEditingController();
-  TextEditingController LastNameController =  TextEditingController();
-  TextEditingController DobContoller=TextEditingController();
-  TextEditingController AgeController=TextEditingController();
-  TextEditingController GenderController=TextEditingController();
-TextEditingController PhnController=TextEditingController();
-  TextEditingController GuardiannameController=TextEditingController();
-TextEditingController GuardianPhnController=TextEditingController();
-TextEditingController RelationController=TextEditingController();
-TextEditingController SchoolNameController=TextEditingController();
-   TextEditingController AddressController=TextEditingController();
-   TextEditingController EmailController=TextEditingController();
-TextEditingController AdmissionDateController=TextEditingController();
-TextEditingController TimePeriodController=TextEditingController();
-   TextEditingController EndingDateController=TextEditingController();
-   TextEditingController feeController=TextEditingController();
-   TextEditingController heightController=TextEditingController();
-   TextEditingController weightController=TextEditingController();
-   TextEditingController sportstypeController=TextEditingController();
-   TextEditingController CoachnameController=TextEditingController();
-   TextEditingController TeamNameController=TextEditingController();
-   TextEditingController EmergencyNoController=TextEditingController();
-   TextEditingController InsuranceController=TextEditingController();
-   TextEditingController BloodgroupController=TextEditingController();
-   WebserviceHelper web = WebserviceHelper();
+  TextEditingController FirstnameController = TextEditingController();
+  TextEditingController LastNameController = TextEditingController();
+  TextEditingController DobContoller = TextEditingController();
+  TextEditingController AgeController = TextEditingController();
+  TextEditingController GenderController = TextEditingController();
+  TextEditingController PhnController = TextEditingController();
+  TextEditingController GuardiannameController = TextEditingController();
+  TextEditingController GuardianPhnController = TextEditingController();
+  TextEditingController RelationController = TextEditingController();
+  TextEditingController SchoolNameController = TextEditingController();
+  TextEditingController AddressController = TextEditingController();
+  TextEditingController EmailController = TextEditingController();
+  TextEditingController AdmissionDateController = TextEditingController();
+  TextEditingController TimePeriodController = TextEditingController();
+  TextEditingController EndingDateController = TextEditingController();
+  TextEditingController feeController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  TextEditingController sportstypeController = TextEditingController();
+  TextEditingController CoachnameController = TextEditingController();
+  TextEditingController TeamNameController = TextEditingController();
+  TextEditingController EmergencyNoController = TextEditingController();
+  TextEditingController InsuranceController = TextEditingController();
+  TextEditingController BloodgroupController = TextEditingController();
+  WebserviceHelper web = WebserviceHelper();
 
   final GlobalKey<FormState> _FormKey = GlobalKey<FormState>();
   StudentProDataModel StdntPro = StudentProDataModel.empty();
@@ -97,13 +97,12 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: TextFormField(
-
                           validator: (value) {
                             return Validate.txtValidator(value!);
                           },
@@ -164,7 +163,7 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -200,7 +199,7 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -233,17 +232,19 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: DropdownButtonFormField(
                           value: bloodg,
-                          onChanged: (bg) => setState(() => bloodg = bg as String?),
+                          onChanged: (bg) =>
+                              setState(() => bloodg = bg as String?),
                           decoration: InputDecoration(
                               hintText: 'Blood Group',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold,
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black38),
                               icon: Icon(
                                 Icons.bloodtype,
@@ -253,7 +254,7 @@ TextEditingController TimePeriodController=TextEditingController();
                                   borderRadius: BorderRadius.circular(15.0),
                                   borderSide: BorderSide.none)),
                           validator: (value) =>
-                          value == null ? "field required" : null,
+                              value == null ? "field required" : null,
                           items: [
                             'A +ve',
                             'A -ve',
@@ -267,29 +268,32 @@ TextEditingController TimePeriodController=TextEditingController();
                             return DropdownMenuItem(
                               child: Text(
                                 value,
-                                style: TextStyle(
-                                    color: Colors.black),
+                                style: TextStyle(color: Colors.black),
                               ),
                               value: value,
                             );
                           }).toList(),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: DropdownButtonFormField(
                           value: gender,
-                          onChanged: (gen) => setState(() => gender = gen as String?),
+                          onChanged: (gen) =>
+                              setState(() => gender = gen as String?),
                           decoration: InputDecoration(
                               hintText: 'Gender',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold,
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black38),
                               icon: Icon(
                                 Icons.perm_identity,
@@ -299,7 +303,7 @@ TextEditingController TimePeriodController=TextEditingController();
                                   borderRadius: BorderRadius.circular(15.0),
                                   borderSide: BorderSide.none)),
                           validator: (value) =>
-                          value == null ? "field required" : null,
+                              value == null ? "field required" : null,
                           items: [
                             'FEMALE',
                             'MALE',
@@ -307,19 +311,20 @@ TextEditingController TimePeriodController=TextEditingController();
                             return DropdownMenuItem(
                               child: Text(
                                 value,
-                                style: TextStyle(
-                                    color: Colors.black),
+                                style: TextStyle(color: Colors.black),
                               ),
                               value: value,
                             );
                           }).toList(),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -354,7 +359,6 @@ TextEditingController TimePeriodController=TextEditingController();
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -363,7 +367,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.PhoneNumber = value! as int?;
                           },
                           controller: PhnController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Phone Number',
@@ -383,7 +387,7 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -416,21 +420,20 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
                           },
                           onSaved: (String? value) {
-                            StdntPro.Height = value! as double? ;
+                            StdntPro.Height = value! as double?;
                           },
                           controller: heightController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Height',
@@ -444,17 +447,17 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,
-                      )    ,
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -463,7 +466,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.Weight = value! as double?;
                           },
                           controller: weightController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Weight ',
@@ -477,14 +480,13 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -511,16 +513,17 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -529,7 +532,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.GuardianName = value!;
                           },
                           controller: GuardiannameController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Guardian Name',
@@ -549,12 +552,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -563,7 +565,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.GuardianPhone = value! as int?;
                           },
                           controller: GuardianPhnController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Guardian Number',
@@ -583,12 +585,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -597,7 +598,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.RelationToPlayer = value!;
                           },
                           controller: RelationController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Relationship To Player',
@@ -611,16 +612,17 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -629,7 +631,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.EmergencyNumber = value! as int?;
                           },
                           controller: EmergencyNoController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Emergency Number',
@@ -649,7 +651,7 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -685,12 +687,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -699,7 +700,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.Timeperiod = value!;
                           },
                           controller: TimePeriodController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Time Period',
@@ -719,7 +720,7 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
@@ -755,12 +756,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -769,7 +769,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.Fee = value! as double?;
                           },
                           controller: feeController,
-                          keyboardType:TextInputType.number,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Fees',
@@ -789,12 +789,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -803,7 +802,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.SportsType = value!;
                           },
                           controller: RelationController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'SportsType',
@@ -817,16 +816,17 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -835,7 +835,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.CoachName = value!;
                           },
                           controller: CoachnameController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Coach Name',
@@ -855,12 +855,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -869,7 +868,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.TeamName = value!;
                           },
                           controller: TeamNameController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Team Name',
@@ -889,12 +888,11 @@ TextEditingController TimePeriodController=TextEditingController();
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-
                         child: TextFormField(
                           validator: (value) {
                             return Validate.txtValidator(value!);
@@ -903,7 +901,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             StdntPro.InsuranceCarrier = value!;
                           },
                           controller: InsuranceController,
-                          keyboardType:TextInputType.text,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Insurance Carrier',
@@ -917,7 +915,9 @@ TextEditingController TimePeriodController=TextEditingController();
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
                 ),
@@ -928,11 +928,10 @@ TextEditingController TimePeriodController=TextEditingController();
       ),
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.blue,
-
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
 
-          StdntPro.FirstName=FirstnameController.text;
+          StdntPro.FirstName = FirstnameController.text;
           StdntPro.LastName = LastNameController.text;
           StdntPro.DOB = _selectDate(context);
           StdntPro.Age = int.parse(AgeController.text);
@@ -943,11 +942,13 @@ TextEditingController TimePeriodController=TextEditingController();
           StdntPro.SchoolName = SchoolNameController.text;
           StdntPro.Address = AddressController.text;
           StdntPro.Email = EmailController.text;
-          StdntPro.Admission = int.parse(AdmissionDateController.text) as DateTime?;
+          StdntPro.Admission =
+              int.parse(AdmissionDateController.text) as DateTime?;
           StdntPro.Timeperiod = TimePeriodController.text;
-          StdntPro.EndingDate = int.parse(EndingDateController.text) as DateTime?;
-          StdntPro.Fee = int.parse(feeController.text) as double? ;
-          StdntPro.Height = int.parse(heightController.text) as double? ;
+          StdntPro.EndingDate =
+              int.parse(EndingDateController.text) as DateTime?;
+          StdntPro.Fee = int.parse(feeController.text) as double?;
+          StdntPro.Height = int.parse(heightController.text) as double?;
           StdntPro.Weight = int.parse(weightController.text) as double?;
           StdntPro.SportsType = sportstypeController.text;
           StdntPro.TeamName = TeamNameController.text;
@@ -956,7 +957,6 @@ TextEditingController TimePeriodController=TextEditingController();
           StdntPro.RelationToPlayer = RelationController.text;
           StdntPro.InsuranceCarrier = InsuranceController.text;
           StdntPro.BloodGroup = BloodgroupController.text;
-
 
           print('Data : ${StdntPro.toJson()}');
           await web.StudentRecord(model: StdntPro);
@@ -981,35 +981,36 @@ TextEditingController TimePeriodController=TextEditingController();
         DobContoller.text = DateFormat.yMMMd().format(selectedDate);
       });
   }
-   _selectDate1(BuildContext context) async {
-     final DateTime? picked = await showDatePicker(
-       context: context,
-       initialDate: selectedDate,
-       firstDate: DateTime(2020),
-       lastDate: DateTime(2025),
-     );
-     if (picked != null)
-       // ignore: curly_braces_in_flow_control_structures
-       setState(() {
-         selectedDate = picked;
-         adm = selectedDate.toString();
-         AdmissionDateController.text = DateFormat.yMMMd().format(selectedDate);
-       });
-   }
-   _selectDate3(BuildContext context) async {
-     final DateTime? picked = await showDatePicker(
-       context: context,
-       initialDate: selectedDate,
-       firstDate: DateTime(2020),
-       lastDate: DateTime(2025),
-     );
-     if (picked != null)
-       // ignore: curly_braces_in_flow_control_structures
-       setState(() {
-         selectedDate = picked;
-         end = selectedDate.toString();
-         EndingDateController.text = DateFormat.yMMMd().format(selectedDate);
-       });
-   }
-}
 
+  _selectDate1(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        selectedDate = picked;
+        adm = selectedDate.toString();
+        AdmissionDateController.text = DateFormat.yMMMd().format(selectedDate);
+      });
+  }
+
+  _selectDate3(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        selectedDate = picked;
+        end = selectedDate.toString();
+        EndingDateController.text = DateFormat.yMMMd().format(selectedDate);
+      });
+  }
+}

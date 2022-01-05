@@ -3,16 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_team/CoachCubit/coachlist_cubit.dart';
 import 'package:football_team/Forms/CoachEditor.dart';
 
-
-
-
 class CoachList extends StatefulWidget {
   @override
   _CoachListState createState() => _CoachListState();
 }
 
 class _CoachListState extends State<CoachList> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

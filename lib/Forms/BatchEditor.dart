@@ -15,7 +15,7 @@ class Batches extends StatefulWidget {
 }
 
 class _BatchesState extends State<Batches> {
-  TextEditingController BatchController =  TextEditingController();
+  TextEditingController BatchController = TextEditingController();
   WebserviceHelper web = WebserviceHelper();
 
   final GlobalKey<FormState> _FormKey = GlobalKey<FormState>();
@@ -28,70 +28,61 @@ class _BatchesState extends State<Batches> {
         backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
-        child: Container(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: SingleChildScrollView(
-                  key: _FormKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 20,
+          child: Container(
+              child: Stack(children: <Widget>[
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
+              key: _FormKey,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: TextFormField(
-
-                          validator: (value) {
-                            return Validate.txtValidator(value!);
-                          },
-                          onSaved: (String? value) {
-                            batches.Batch = value!;
-                          },
-                          controller: BatchController,
-                          keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Batch Name',
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black38),
-                            icon: Icon(
-                              Icons.batch_prediction_rounded,
-                              color: Colors.black38,
-                            ),
+                      child: TextFormField(
+                        validator: (value) {
+                          return Validate.txtValidator(value!);
+                        },
+                        onSaved: (String? value) {
+                          batches.Batch = value!;
+                        },
+                        controller: BatchController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Batch Name',
+                          hintStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black38),
+                          icon: Icon(
+                            Icons.batch_prediction_rounded,
+                            color: Colors.black38,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-]
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ])),
         )
-        ),
-
-              )
-        ]
-    )
-    )
-    ),
+      ]))),
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.blue,
-
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
 
-          batches.Batch=BatchController.text;
+          batches.Batch = BatchController.text;
 
           print('Data : ${batches.toJson()}');
           await web.BatchRecord(model: batches);
@@ -99,9 +90,6 @@ class _BatchesState extends State<Batches> {
         child: Icon(Icons.check_outlined),
         backgroundColor: Colors.blue,
       ),
-
     );
   }
-
 }
-

@@ -5,15 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_team/Forms/StudentHome.dart';
 import 'package:football_team/StudentCubit/studentlist_cubit.dart';
 
-
-
 class StudentList extends StatefulWidget {
   @override
   _StudentListState createState() => _StudentListState();
 }
 
 class _StudentListState extends State<StudentList> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,6 +4,7 @@ part of 'studenteditor_cubit.dart';
 abstract class StudenteditorState {}
 
 class StudenteditorInitial extends StudenteditorState {}
+
 class Fetching extends StudenteditorState {}
 
 class DataReady extends StudenteditorState {

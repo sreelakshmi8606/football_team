@@ -11,7 +11,6 @@ class BatchList extends StatefulWidget {
 }
 
 class _BatchListState extends State<BatchList> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
