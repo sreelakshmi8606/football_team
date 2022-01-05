@@ -6,6 +6,7 @@ import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/Common/kboxdecor.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
+
 class SessionEditor extends StatefulWidget {
   late String Session;
   late int duration;
@@ -125,7 +126,6 @@ class _SessionEditorState extends State<SessionEditor> {
         splashColor: Colors.lightGreen,
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
-          //  mhatchery.FarmId = uuid.v4();
           session.Session = sessionnamecontroller.text;
           session.duration= int.parse(durationcontroller.text);
           print('Data : ${session.toJson()}');

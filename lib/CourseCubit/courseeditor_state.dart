@@ -10,9 +10,7 @@ class DataReady extends CourseeditorState {
   final List<CourseDataModel> data;
   DataReady({required this.data});
 }
-
 class FetchError extends CourseeditorState {
   final String msg;
-
   FetchError(this.msg);
 }

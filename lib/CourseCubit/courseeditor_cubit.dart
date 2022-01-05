@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/DataModels/CourseModel.dart';
+import 'package:football_team/DataModels/SessionDataModel.dart';
 import 'package:meta/meta.dart';
 
 part 'courseeditor_state.dart';

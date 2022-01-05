@@ -93,6 +93,7 @@ class CustomSearchDelegate extends SearchDelegate {
       BuildContext context, SessionDataModel Sessions, int index) {
     return InkWell(
       onTap: () async {
+
         close(
           context,
           SessionDataModel(
