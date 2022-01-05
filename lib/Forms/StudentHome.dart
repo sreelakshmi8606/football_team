@@ -21,7 +21,7 @@ late  String Address;
  late DateTime Admission;
 late  String Timeperiod;
 late  DateTime EndingDate;
- late int Fee;
+ late double Fee;
  late double Height;
 late  double Weight;
  late String  SportsType;
@@ -766,7 +766,7 @@ TextEditingController TimePeriodController=TextEditingController();
                             return Validate.txtValidator(value!);
                           },
                           onSaved: (String? value) {
-                            StdntPro.Fee = value! as int?;
+                            StdntPro.Fee = value! as double?;
                           },
                           controller: feeController,
                           keyboardType:TextInputType.number,
@@ -946,7 +946,7 @@ TextEditingController TimePeriodController=TextEditingController();
           StdntPro.Admission = int.parse(AdmissionDateController.text) as DateTime?;
           StdntPro.Timeperiod = TimePeriodController.text;
           StdntPro.EndingDate = int.parse(EndingDateController.text) as DateTime?;
-          StdntPro.Fee = int.parse(feeController.text) ;
+          StdntPro.Fee = int.parse(feeController.text) as double? ;
           StdntPro.Height = int.parse(heightController.text) as double? ;
           StdntPro.Weight = int.parse(weightController.text) as double?;
           StdntPro.SportsType = sportstypeController.text;

@@ -19,7 +19,7 @@ class StudentProDataModel {
   DateTime?Admission;
   String ?Timeperiod;
   DateTime?EndingDate;
-  int?Fee;
+  double?Fee;
   double? Height;
   double?Weight;
   String ? SportsType;
@@ -72,7 +72,7 @@ class StudentProDataModel {
     DateTime?Admission,
     String ?Timeperiod,
     DateTime?EndingDate,
-    int?Fee,
+    double?Fee,
     double? Height,
     double?Weight,
     String ? SportsType,

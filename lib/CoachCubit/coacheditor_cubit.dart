@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:bloc/bloc.dart';
 import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/DataModels/CoachModel.dart';
@@ -13,7 +15,7 @@ class CoacheditorCubit extends Cubit<CoacheditorState> {
   void fetchData() async {
     emit(Fetching());
     try {
-      final List<Map> data = await web.getCoachEditor();
+      final List<CoachDataModel> data = (await web.getCoachEditor()).cast<CoachDataModel>();
       emit(DataReady(data: data));
     } catch (e) {
       print(e.toString());

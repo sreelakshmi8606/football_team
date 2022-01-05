@@ -12,6 +12,7 @@ import 'package:intl/intl.dart';
 
 class CourseEditor extends StatefulWidget {
   late String Course;
+  late List<SessionDataModel> sessions;
 
   @override
   _CourseEditorState createState() => _CourseEditorState();
