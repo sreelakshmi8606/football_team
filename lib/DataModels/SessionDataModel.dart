@@ -14,14 +14,14 @@ class SessionDataModel {
   }) {
     return SessionDataModel(
       Session: Session ?? this.Session,
-      duration: duration?? this.duration,
+      duration: duration ?? this.duration,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'Session': Session,
-      'duration':duration,
+      'duration': duration,
     };
   }
 
@@ -51,12 +51,11 @@ class SessionDataModel {
 
     return other is SessionDataModel &&
         other.Session == Session &&
-        other.duration ==duration;
+        other.duration == duration;
   }
 
   @override
   int get hashCode {
-    return Session.hashCode^
-    duration.hashCode;
+    return Session.hashCode ^ duration.hashCode;
   }
 }

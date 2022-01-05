@@ -3,12 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:football_team/Common/Validation.dart';
 import 'package:football_team/Common/WebService.dart';
-import 'package:football_team/DataModels/BatchModel.dart';
 import 'package:football_team/DataModels/CourseModel.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
-import 'package:football_team/DataModels/StudentPro.dart';
 import 'package:football_team/Forms/CourseSearchDeligate.dart';
-import 'package:intl/intl.dart';
 
 class CourseEditor extends StatefulWidget {
   late String Course;
@@ -88,7 +85,6 @@ class _CourseEditorState extends State<CourseEditor> {
             context: context,
             delegate: CustomSearchDelegate(),
           );
-
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,

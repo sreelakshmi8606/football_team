@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:football_team/DataModels/BatchModel.dart';
 import 'package:football_team/DataModels/CoachModel.dart';
+import 'package:football_team/DataModels/SessionDataModel.dart';
 import 'package:football_team/DataModels/StudentPro.dart';
 import 'package:intl/intl.dart';
 
@@ -47,6 +48,22 @@ class WebserviceHelper {
     return true;
   }
   Future<bool> BatchRecord({required BatchDataModel model}) async {
+    model.toJson();
+    String url = "";
+    print('Url : $url');
+    print('Data : ${model.toJson()}');
+    try {
+      // Response response = await dio.post(url, data: model.toJson());
+      // print('Response : ${response.data}');
+      await dio.post(url, data: model.toJson());
+    } catch (e) {
+      print('Error : ${e.toString()}');
+      return false;
+    }
+    return true;
+  }
+
+  Future<bool> SessionRecord({required SessionDataModel model}) async {
     model.toJson();
     String url = "";
     print('Url : $url');

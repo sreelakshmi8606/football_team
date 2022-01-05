@@ -4,19 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final kBoxdecorationStyle = BoxDecoration(
-  color: Colors.white,
-  borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(15.0),
-      bottomRight: Radius.circular(15.0)),
-  boxShadow: [
-    BoxShadow(
-      color: Colors.black26,
-      offset: Offset(
-        6.0,
-        6.0,
-      ),
-    ),
-  ],
+  color: Colors.grey[200],
+  borderRadius: BorderRadius.circular(10.0),
 );
 final dBoxdecorationStyle = BoxDecoration(
   color: Colors.white,
