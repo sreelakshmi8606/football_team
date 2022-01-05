@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:bloc/bloc.dart';
 import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/DataModels/CourseModel.dart';
@@ -12,8 +14,11 @@ class CourseeditorCubit extends Cubit<CourseeditorState> {
   final String url;
   void fetchData() async {
     emit(Fetching());
+    emit(addingSession());
+   // emit(addSession(data: data));
     try {
       final List<CourseDataModel> data = (await web.getCourseEditor()).cast<CourseDataModel>();
+      //emit(addSession(data: data));
       emit(DataReady(data: data));
     } catch (e) {
       print(e.toString());
