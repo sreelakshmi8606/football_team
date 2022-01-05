@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_team/Forms/sessionEditor.dart';
-import 'package:football_team/sessionCubit/cubit/sessionlist_cubit.dart';
+import 'package:football_team/SessionCubit/sessionlist_cubit.dart';
+
 
 class SessionList extends StatefulWidget {
   @override

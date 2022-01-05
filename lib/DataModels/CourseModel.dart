@@ -58,3 +58,4 @@ class CourseDataModel {
   int get hashCode => Course.hashCode ^ sessions.hashCode;
 }
 //'sessions': sessions?.map((x) => x?.toMap())?.toList(),
+//'sessions': sessions?.map((x) => x?.toMap())?.toList(),
