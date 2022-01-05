@@ -81,33 +81,67 @@ class CustomSearchDelegate extends SearchDelegate {
       return Center(child: Text("No Sessions")
         ,);
           else
-    return ListView.builder(
-      itemBuilder: (context, index) => ListTile(
-        onTap: () {
-          if (query.isEmpty) {
-            query = suggestion[index];
-          }
+      return ListView.builder(
+        itemCount: Sessions.length,
+        itemBuilder: (context, index) {
+          return getListItemWidget(context, Sessions[index], index);
         },
-        leading: Icon(query.isEmpty ? Icons.history : Icons.search),
-        title: RichText(
-            text: TextSpan(
-                text: Sessions[index].Session,
-                style:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                children: [
-                  TextSpan(
-                    text: Sessions[index].Session,
-                    style: TextStyle(color: Colors.black87),
-                  )
-                ])),
+      );
+  }
+
+  Widget getListItemWidget(
+      BuildContext context, SessionDataModel Sessions, int index) {
+    return InkWell(
+      onTap: () async {
+        close(
+          context,
+          SessionDataModel(
+            Session: Sessions.Session,
+            duration: Sessions.duration,
+
+          ),
+        );
+      },
+      child: Card(
+        color: Colors.blue.shade50,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    Sessions.Session!,
+                    textAlign: TextAlign.left,
+
+                  ),
+                ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(12, 4, 4, 4),
+              //   child: Align(
+              //     alignment: Alignment.centerLeft,
+              //     child: Text(
+              //       item.groupName ?? '',
+              //       textAlign: TextAlign.left,
+              //       style: GoogleFonts.roboto(
+              //         fontSize: 12,
+              //         fontStyle: FontStyle.italic,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        ),
       ),
-      itemCount: Sessions.length,
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-
     throw UnimplementedError();
   }
 }
