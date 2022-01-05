@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, must_be_immutable, prefer_const_constructors, unnecessary_new, avoid_unnecessary_containers, avoid_print, non_constant_identifier_names
+// ignore_for_file: file_names, must_be_immutable, prefer_const_constructors, unnecessary_new, avoid_unnecessary_containers, avoid_print, non_constant_identifier_names, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:football_team/Common/Validation.dart';
@@ -23,7 +23,6 @@ class _SessionEditorState extends State<SessionEditor> {
   WebserviceHelper web = WebserviceHelper();
   @override
   Widget build(BuildContext context) {
-    // final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Session'),
@@ -33,12 +32,6 @@ class _SessionEditorState extends State<SessionEditor> {
         child: Container(
           child: Stack(
             children: <Widget>[
-              // Positioned(
-              //   top: -MediaQuery.of(context).size.height * .15,
-              //   right: -MediaQuery.of(context).size.width * .4,
-              // child: BezierContainer(),
-              // ),
-
               Container(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
@@ -122,10 +115,9 @@ class _SessionEditorState extends State<SessionEditor> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        splashColor: Colors.lightGreen,
+        splashColor: Colors.blue,
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
-          //  mhatchery.FarmId = uuid.v4();
           session.Session = sessionnamecontroller.text;
           session.duration= int.parse(durationcontroller.text);
           print('Data : ${session.toJson()}');

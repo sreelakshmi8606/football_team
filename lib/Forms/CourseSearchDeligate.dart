@@ -114,6 +114,7 @@ class CustomSearchDelegate extends SearchDelegate {
                     Sessions.Session!,
                     textAlign: TextAlign.left,
                   ),
+
                 ),
               ),
             ],
@@ -125,6 +126,6 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    throw UnimplementedError();
+   throw UnimplementedError();
   }
 }
