@@ -7,7 +7,7 @@ class BatcheditorInitial extends BatcheditorState {}
 class Fetching extends BatcheditorState {}
 
 class DataReady extends BatcheditorState {
-  final List<Map> data;
+  final List<BatchDataModel> data;
   DataReady({required this.data});
 }
 

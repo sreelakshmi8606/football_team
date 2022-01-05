@@ -11,7 +11,7 @@ class BatchlistCubit extends Cubit<BatchlistState> {
   void fetchData() async {
     emit(Fetching());
     try {
-      final List data = await web.getCoachList();
+      final List data = await web.getBatchList();
       emit(FetchCompleted(data: data));
     } catch (e) {
       print(e.toString());
