@@ -8,12 +8,11 @@ import 'package:football_team/Forms/BatchList.dart';
 import 'package:football_team/Forms/CourseEditor.dart';
 import 'package:football_team/Forms/StudentHome.dart';
 import 'package:football_team/Forms/StudentList.dart';
-import 'package:football_team/Forms/sessionlist.dart';
 import 'package:football_team/StudentCubit/studentlist_cubit.dart';
-import 'package:football_team/cubit/courselist_cubit.dart';
-import 'package:football_team/sessionCubit/cubit/sessionlist_cubit.dart';
+
 
 import 'CoachList.dart';
+
 
 class FormGrid extends StatefulWidget {
   @override
@@ -25,8 +24,7 @@ class _FormGridState extends State<FormGrid> {
     'COACH',
     'STUDENT',
     'BATCH',
-    'COURSE',
-    'SESSION',
+    'COURSE'
   ];
   @override
   Widget build(BuildContext context) {
@@ -80,40 +78,33 @@ class _FormGridState extends State<FormGrid> {
           context,
           MaterialPageRoute(
               builder: (context) => BlocProvider(
-                    create: (context) => CoachlistCubit(url: '')..fetchData(),
-                    child: CoachList(),
-                  )));
+                create: (context) =>
+                CoachlistCubit(url: '')..fetchData(),
+                child: CoachList(),
+              )));
     else if (index == 1)
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => BlocProvider(
-                    create: (context) => StudentlistCubit(url: '')..fetchData(),
-                    child: StudentList(),
-                  )));
+                create: (context) =>
+                StudentlistCubit(url: '')..fetchData(),
+                child: StudentList(),
+              )));
     else if (index == 2)
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => BlocProvider(
-                    create: (context) => BatchlistCubit(url: '')..fetchData(),
-                    child: BatchList(),
-                  )));
-    else if (index == 3)
+                create: (context) =>
+                BatchlistCubit(url: '')..fetchData(),
+                child: BatchList(),
+              )));
+else if (index==3)
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => BlocProvider(
-                create: (context) => CourselistCubit(url: '')..fetchData(),
-                child: CourseEditor(),
-              )));
-    else if (index == 4)
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => BlocProvider(
-                create: (context) => SessionlistCubit(url: '')..fetchData(),
-                child: SessionList(),
-              )));
+              builder: (context) => CourseEditor()
+              ));
   }
 }

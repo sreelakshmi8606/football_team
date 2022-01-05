@@ -1,14 +1,16 @@
-// ignore_for_file: file_names, prefer_const_constructors, sized_box_for_whitespace, curly_braces_in_flow_control_structures
+// ignore_for_file: file_names, prefer_const_constructors, sized_box_for_whitespace, curly_braces_in_flow_control_structures, prefer_is_empty, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
+
 class CustomSearchDelegate extends SearchDelegate {
   //List<String> allNames = ["Session1", "Session2", "Session3", "Session4"];
-  List<SessionDataModel> Sessions=[SessionDataModel(Session: 'Session1', duration: 50),
+  List<SessionDataModel> Sessions = [
+    SessionDataModel(Session: 'Session1', duration: 50),
     SessionDataModel(Session: 'Session2', duration: 50),
     SessionDataModel(Session: 'Session3', duration: 50),
-    SessionDataModel(Session: 'Session4', duration: 50),];
-
+    SessionDataModel(Session: 'Session4', duration: 50),
+  ];
   var suggestion = ["Session1", "Session2", "Session4"];
   List<String> searchResult = [];
 
@@ -74,37 +76,56 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    if(Sessions.length==0)
-      return Center(child: Text("No Sessions")
-        ,);
-          else
-    return ListView.builder(
-      itemBuilder: (context, index) => ListTile(
-        onTap: () {
-          if (query.isEmpty) {
-            query = suggestion[index];
-          }
+    if (Sessions.length == 0)
+      return Center(
+        child: Text("No Sessions"),
+      );
+    else
+      return ListView.builder(
+        itemCount: Sessions.length,
+        itemBuilder: (context, index) {
+          return getListSessionWidget(context, Sessions[index], index);
         },
-        leading: Icon(query.isEmpty ? Icons.history : Icons.search),
-        title: RichText(
-            text: TextSpan(
-                text: Sessions[index].Session,
-                style:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                children: [
-                  TextSpan(
-                    text: Sessions[index].Session,
-                    style: TextStyle(color: Colors.black87),
-                  )
-                ])),
+      );
+  }
+
+  Widget getListSessionWidget(
+      BuildContext context, SessionDataModel Sessions, int index) {
+    return InkWell(
+      onTap: () async {
+        close(
+          context,
+          SessionDataModel(
+            Session: Sessions.Session,
+            duration: Sessions.duration,
+          ),
+        );
+      },
+      child: Card(
+        color: Colors.blue.shade50,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    Sessions.Session!,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      itemCount: Sessions.length,
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement build
     throw UnimplementedError();
   }
 }

@@ -183,4 +183,46 @@ class WebserviceHelper {
     dynamic data = await dio.get(url);
     return data;
   }
+  // Future<List> getCourseList() async {
+  //   List dvals = [];
+  //   String url = "http://31.220.109.198:8050/GetHatcheryMasterData";
+  //   try {
+  //     Response response = await dio.get(url);
+  //     print(url);
+  //     dynamic tdata = json.decode(response.data);
+  //     dvals = tdata['hits'];
+  //     print(tdata['hits']);
+  //   } catch (e) {
+  //     print('Exception');
+  //     print(e.toString());
+  //   }
+  //   return dvals;
+  // }
+
+  // Future<List<Map>> getCourseEditor() async {
+  //   String url = "";
+  //   dynamic data = await dio.get(url);
+  //   return data;
+  // }
+  // Future<List> getBatchList() async {
+  //   List dvals = [];
+  //   String url = "http://31.220.109.198:8050/GetHatcheryMasterData";
+  //   try {
+  //     Response response = await dio.get(url);
+  //     print(url);
+  //     dynamic tdata = json.decode(response.data);
+  //     dvals = tdata['hits'];
+  //     print(tdata['hits']);
+  //   } catch (e) {
+  //     print('Exception');
+  //     print(e.toString());
+  //   }
+  //   return dvals;
+  // }
+
+  // Future<List<Map>> getBatchEditor() async {
+  //   String url = "";
+  //   dynamic data = await dio.get(url);
+  //   return data;
+  // }
 }
