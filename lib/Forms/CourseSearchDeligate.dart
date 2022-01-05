@@ -36,39 +36,40 @@ class CustomSearchDelegate extends SearchDelegate {
 
   // @override
   // Widget buildResults(BuildContext context) {
-  //   searchResult.clear();
-  //   // searchResult =
-  //   //     Sessions.where((element) => element.startsWith(query)).cast<String>().toList();
-  //   return Center(
-  //     child: Container(
-  //       width: 130,
-  //       height: 130,
-  //       child: Card(
-  //         color: Colors.orangeAccent,
-  //         child: Center(
-  //           child: Text(query,
-  //               style: TextStyle(
-  //                 fontWeight: FontWeight.bold,
-  //                 fontSize: 25,
-  //               )),
-  //         ),
-  //       ),
-  //     ),
-  //   );
+  //   // searchResult.clear();
+  //   // // searchResult =
+  //   // //     Sessions.where((element) => element.startsWith(query)).cast<String>().toList();
+  //   // return Center(
+  //   //   child: Container(
+  //   //     width: 130,
+  //   //     height: 130,
+  //   //     child: Card(
+  //   //       color: Colors.orangeAccent,
+  //   //       child: Center(
+  //   //         child: Text(query,
+  //   //             style: TextStyle(
+  //   //               fontWeight: FontWeight.bold,
+  //   //               fontSize: 25,
+  //   //             )),
+  //   //       ),
+  //   //     ),
+  //   //   ),
+  //   // );
   //
-  //   return Container(
-  //     margin: EdgeInsets.all(20),
-  //     child: ListView(
-  //         padding: EdgeInsets.only(top: 8, bottom: 8),
-  //         scrollDirection: Axis.vertical,
-  //         children: List.generate(suggestion.length, (index) {
-  //           var item = suggestion[index];
-  //           return Card(
-  //             color: Colors.white,
-  //             child: Container(padding: EdgeInsets.all(16), child: Text(item)),
-  //           );
-  //         })),
-  //   );
+  //   // return Container(
+  //   //   margin: EdgeInsets.all(20),
+  //   //   child: ListView(
+  //   //       padding: EdgeInsets.only(top: 8, bottom: 8),
+  //   //       scrollDirection: Axis.vertical,
+  //   //       children: List.generate(suggestion.length, (index) {
+  //   //         var item = suggestion[index];
+  //   //         return Card(
+  //   //           color: Colors.white,
+  //   //           child: Container(padding: EdgeInsets.all(16), child: Text(item)),
+  //   //         );
+  //   //       })),
+  //   // );
+  //
   // }
 
   @override
