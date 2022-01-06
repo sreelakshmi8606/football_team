@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
-class CustomSearchDelegate extends SearchDelegate {
+class CustomSearchDelegate extends SearchDelegate<SessionDataModel> {
   //List<String> allNames = ["Session1", "Session2", "Session3", "Session4"];
   List<SessionDataModel> Sessions = [
     SessionDataModel(Session: 'Session1', duration: 50),
@@ -11,9 +11,13 @@ class CustomSearchDelegate extends SearchDelegate {
     SessionDataModel(Session: 'Session3', duration: 50),
     SessionDataModel(Session: 'Session4', duration: 50),
   ];
-  var suggestion = ["Session1", "Session2", "Session4"];
+  var Session = [
+    SessionDataModel(Session: 'Session1', duration: 50),
+    SessionDataModel(Session: 'Session2', duration: 50),
+    SessionDataModel(Session: 'Session3', duration: 50),
+    SessionDataModel(Session: 'Session4', duration: 50),
+  ];
   List<String> searchResult = [];
-
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -31,51 +35,15 @@ class CustomSearchDelegate extends SearchDelegate {
     return IconButton(
       icon: Icon(Icons.arrow_back),
       onPressed: () {
-        close(context, null);
+        // close(context, null);
       },
     );
   }
-
-  // @override
-  // Widget buildResults(BuildContext context) {
-  //   // searchResult.clear();
-  //   // // searchResult =
-  //   // //     Sessions.where((element) => element.startsWith(query)).cast<String>().toList();
-  //   // return Center(
-  //   //   child: Container(
-  //   //     width: 130,
-  //   //     height: 130,
-  //   //     child: Card(
-  //   //       color: Colors.orangeAccent,
-  //   //       child: Center(
-  //   //         child: Text(query,
-  //   //             style: TextStyle(
-  //   //               fontWeight: FontWeight.bold,
-  //   //               fontSize: 25,
-  //   //             )),
-  //   //       ),
-  //   //     ),
-  //   //   ),
-  //   // );
-  //
-  //   // return Container(
-  //   //   margin: EdgeInsets.all(20),
-  //   //   child: ListView(
-  //   //       padding: EdgeInsets.only(top: 8, bottom: 8),
-  //   //       scrollDirection: Axis.vertical,
-  //   //       children: List.generate(suggestion.length, (index) {
-  //   //         var item = suggestion[index];
-  //   //         return Card(
-  //   //           color: Colors.white,
-  //   //           child: Container(padding: EdgeInsets.all(16), child: Text(item)),
-  //   //         );
-  //   //       })),
-  //   // );
-  //
-  // }
-
   @override
   Widget buildSuggestions(BuildContext context) {
+    // final suggestionList = query.isEmpty
+    //     ? Session
+    //     : Sessions.where((element) => element.startsWith(query)).toList();
     if (Sessions.length == 0)
       return Center(
         child: Text("No Sessions"),
@@ -90,17 +58,10 @@ class CustomSearchDelegate extends SearchDelegate {
   }
 
   Widget getListSessionWidget(
-      BuildContext context, SessionDataModel Sessions, int index) {
+      BuildContext context, SessionDataModel Session, int index) {
     return InkWell(
       onTap: () async {
-
-        close(
-          context,
-          SessionDataModel(
-            Session: Sessions.Session,
-            duration: Sessions.duration,
-          ),
-        );
+        close(context, Session);
       },
       child: Card(
         color: Colors.blue.shade50,
@@ -113,10 +74,9 @@ class CustomSearchDelegate extends SearchDelegate {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    Sessions.Session!,
+                    Session.Session!,
                     textAlign: TextAlign.left,
                   ),
-
                 ),
               ),
             ],
@@ -125,9 +85,10 @@ class CustomSearchDelegate extends SearchDelegate {
       ),
     );
   }
-
+  // @override
+  // Widget buildResults(BuildContext context) {
+  //  throw UnimplementedError();
+  // }
   @override
-  Widget buildResults(BuildContext context) {
-   throw UnimplementedError();
-  }
+  Widget buildResults(BuildContext context) => const Text('Session');
 }

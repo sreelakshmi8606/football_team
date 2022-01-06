@@ -6,7 +6,6 @@ import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/Common/kboxdecor.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
-
 class SessionEditor extends StatefulWidget {
   late String Session;
   late int duration;

@@ -136,7 +136,7 @@ class _CourseEditorState extends State<CourseEditor> {
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.blue,
         onPressed: () async {
-          SessionDataModel Session = await showSearch(
+          SessionDataModel? Session = await showSearch(
             context: context,
             delegate: CustomSearchDelegate(),
           );

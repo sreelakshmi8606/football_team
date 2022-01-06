@@ -8,6 +8,7 @@ import 'package:football_team/Forms/BatchList.dart';
 import 'package:football_team/Forms/CourseEditor.dart';
 import 'package:football_team/Forms/StudentHome.dart';
 import 'package:football_team/Forms/StudentList.dart';
+import 'package:football_team/Forms/sessionEditor.dart';
 import 'package:football_team/StudentCubit/studentlist_cubit.dart';
 
 
@@ -24,7 +25,8 @@ class _FormGridState extends State<FormGrid> {
     'COACH',
     'STUDENT',
     'BATCH',
-    'COURSE'
+    'COURSE',
+    'SESSION'
   ];
   @override
   Widget build(BuildContext context) {
@@ -106,5 +108,12 @@ else if (index==3)
           MaterialPageRoute(
               builder: (context) => CourseEditor()
               ));
+    else if (index==4)
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SessionEditor()
+          ));
+
   }
 }

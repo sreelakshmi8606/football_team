@@ -15,10 +15,10 @@ class CourseeditorCubit extends Cubit<CourseeditorState> {
   void fetchData() async {
     emit(Fetching());
     emit(addingSession());
-   // emit(addSession(data: data));
+
     try {
       final List<CourseDataModel> data = (await web.getCourseEditor()).cast<CourseDataModel>();
-      //emit(addSession(data: data));
+      //emit(addSession(data: []));
       emit(DataReady(data: data));
     } catch (e) {
       print(e.toString());
