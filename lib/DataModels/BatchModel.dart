@@ -2,29 +2,57 @@
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
+import 'package:football_team/DataModels/StudentPro.dart';
+
 class BatchDataModel {
-  String? Batch;
+  String? BatchName;
+  String? Course;
+  String? Coach;
+  List<StudentProDataModel>? Student;
+  String? AllocatedDates;
   BatchDataModel.empty();
   BatchDataModel({
-    required this.Batch,
+    this.BatchName,
+    this.Course,
+    this.Coach,
+    this.Student,
+    this.AllocatedDates,
   });
   BatchDataModel copyWith({
-    String? Batch,
+    String? BatchName,
+    String? Course,
+    String? Coach,
+    List<StudentProDataModel>? Student,
+    String? AllocatedDates,
   }) {
     return BatchDataModel(
-      Batch: Batch ?? this.Batch,
+      BatchName: BatchName ?? this.BatchName,
+      Course: Course ?? this.Course,
+      Coach: Coach ?? this.Coach,
+      Student: Student ?? this.Student,
+      AllocatedDates: AllocatedDates ?? this.AllocatedDates,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'Batch': Batch,
+      'BatchName': BatchName,
+      'Course': Course,
+      'Coach': Coach,
+      'Student': Student?.map((x) => x?.toMap())?.toList(),
+      'AllocatedDates': AllocatedDates,
     };
   }
 
   factory BatchDataModel.fromMap(Map<String, dynamic> map) {
     return BatchDataModel(
-      Batch: map['Batch'],
+      BatchName: map['BatchName'],
+      Course: map['Course'],
+      Coach: map['Coach'],
+      Student: map['Student'] != null ? List<StudentProDataModel>.from(map['Student']?.map((x) => StudentProDataModel.fromMap(x))) : null,
+      AllocatedDates: map['AllocatedDates'],
     );
   }
 
@@ -36,7 +64,11 @@ class BatchDataModel {
   @override
   String toString() {
     return 'BatchDataModel('
-        'Batch: $Batch,'
+        'BatchName: $BatchName,'
+        ' Course: $Course, '
+        'Coach: $Coach, '
+        'Student: $Student, '
+        'AllocatedDates: $AllocatedDates'
         ')';
   }
 
@@ -44,11 +76,20 @@ class BatchDataModel {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is BatchDataModel && other.Batch == Batch;
+    return other is BatchDataModel &&
+        other.BatchName == BatchName &&
+        other.Course == Course &&
+        other.Coach == Coach &&
+        listEquals(other.Student, Student) &&
+        other.AllocatedDates == AllocatedDates;
   }
 
   @override
   int get hashCode {
-    return Batch.hashCode;
+    return BatchName.hashCode ^
+    Course.hashCode ^
+    Coach.hashCode ^
+    Student.hashCode ^
+    AllocatedDates.hashCode;
   }
 }

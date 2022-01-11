@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:football_team/Forms/sessionEditor.dart';
-import 'package:football_team/sessionCubit/cubit/sessionlist_cubit.dart';
+import 'package:football_team/CourseCubit/courselist_cubit.dart';
 
-class SessionList extends StatefulWidget {
+import 'package:football_team/Forms/CourseEditor.dart';
+
+class CourseList extends StatefulWidget {
   @override
-  _SessionListState createState() => _SessionListState();
+  _CourseListState createState() => _CourseListState();
 }
 
-class _SessionListState extends State<SessionList> {
-
+class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Session List"),
+        title: Text("List of Courses"),
         backgroundColor: Colors.blue,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SessionEditor()));
+              context, MaterialPageRoute(builder: (context) => CourseEditor()));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
@@ -44,7 +44,7 @@ class _SessionListState extends State<SessionList> {
           //     )),
           Flexible(
             flex: 25,
-            child: BlocBuilder<SessionlistCubit, SessionlistState>(
+            child: BlocBuilder<CourselistCubit, CourselistState>(
               builder: (context, state) {
                 if (state is Fetching) {
                   return Center(
@@ -64,7 +64,7 @@ class _SessionListState extends State<SessionList> {
                           child: ListTile(
                             title: Center(
                               child: Text(
-                                data[index]['_source']['Session'] ?? 'NO TAG',
+                                data[index]['_source']['Course'] ?? 'NO TAG',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
@@ -87,7 +87,7 @@ class _SessionListState extends State<SessionList> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SessionEditor()));
+                                      builder: (context) => CourseEditor()));
                             },
                           ),
                         );

@@ -5,11 +5,13 @@ import 'package:football_team/Common/Validation.dart';
 import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/DataModels/BatchModel.dart';
 import 'package:football_team/DataModels/StudentPro.dart';
-import 'package:intl/intl.dart';
 
 class Batches extends StatefulWidget {
-  late String Batch;
-
+  late String BatchName;
+  late String Course;
+  late String Coach;
+  late List<StudentProDataModel> Student;
+  late String AllocatedDates;
   @override
   _BatchesState createState() => _BatchesState();
 }
@@ -54,7 +56,7 @@ class _BatchesState extends State<Batches> {
                           return Validate.txtValidator(value!);
                         },
                         onSaved: (String? value) {
-                          batches.Batch = value!;
+                          batches.BatchName = value!;
                         },
                         controller: BatchController,
                         keyboardType: TextInputType.text,
@@ -82,7 +84,7 @@ class _BatchesState extends State<Batches> {
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
 
-          batches.Batch = BatchController.text;
+          batches.BatchName = BatchController.text;
 
           print('Data : ${batches.toJson()}');
           await web.BatchRecord(model: batches);

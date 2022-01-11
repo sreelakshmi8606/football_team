@@ -10,7 +10,7 @@ class Fetching extends CourseeditorState {}
 class addingSession extends CourseeditorState {}
 
 class addSession extends CourseeditorState {
-  final List<SessionDataModel> data;
+  final List<CourseDataModel> data;
   addSession({required this.data});
 }
 

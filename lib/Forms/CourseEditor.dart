@@ -10,7 +10,9 @@ import 'package:football_team/Forms/CourseSearchDeligate.dart';
 class CourseEditor extends StatefulWidget {
   late String Course;
   late List<SessionDataModel> sessions;
-
+  late int MinAge;
+  late int MaxAge;
+  late int Duration;
   @override
   _CourseEditorState createState() => _CourseEditorState();
 }
@@ -136,7 +138,7 @@ class _CourseEditorState extends State<CourseEditor> {
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.blue,
         onPressed: () async {
-          SessionDataModel Session = await showSearch(
+          SessionDataModel? Session = await showSearch(
             context: context,
             delegate: CustomSearchDelegate(),
           );
