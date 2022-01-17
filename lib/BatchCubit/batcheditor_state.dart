@@ -4,15 +4,15 @@ part of 'batcheditor_cubit.dart';
 abstract class BatcheditorState {}
 
 class BatcheditorInitial extends BatcheditorState {}
-class Fetching extends BatcheditorState {}
+class BatchFetching extends BatcheditorState {}
 
-class DataReady extends BatcheditorState {
+class BatchDataReady extends BatcheditorState {
   final List<BatchDataModel> data;
-  DataReady({required this.data});
+  BatchDataReady({required this.data});
 }
 
-class FetchError extends BatcheditorState {
+class BatchFetchError extends BatcheditorState {
   final String msg;
 
-  FetchError(this.msg);
+  BatchFetchError(this.msg);
 }

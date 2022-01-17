@@ -10,13 +10,13 @@ class BatcheditorCubit extends Cubit<BatcheditorState> {
   WebserviceHelper web = WebserviceHelper();
   final String url;
   void fetchData() async {
-    emit(Fetching());
+    emit(BatchFetching());
     try {
       final List<BatchDataModel> data = (await web.getBatchEditor()).cast<BatchDataModel>();
-      emit(DataReady(data: data));
+      emit(BatchDataReady(data: data));
     } catch (e) {
       print(e.toString());
-      emit(FetchError(
+      emit(BatchFetchError(
         e.toString(),
       ));
     }

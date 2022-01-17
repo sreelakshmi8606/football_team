@@ -46,15 +46,15 @@ class _CourseListState extends State<CourseList> {
             flex: 25,
             child: BlocBuilder<CourselistCubit, CourselistState>(
               builder: (context, state) {
-                if (state is Fetching) {
+                if (state is CourseListFetching) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is FetchError) {
+                } else if (state is CourseListFetchError) {
                   return Center(
                     child: Text(state.msg),
                   );
-                } else if (state is FetchCompleted) {
+                } else if (state is CourseListFetchCompleted) {
                   final List data = state.data;
                   return ListView.builder(
                       padding: EdgeInsets.only(top: 15),

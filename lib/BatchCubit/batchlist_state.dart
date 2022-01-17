@@ -4,15 +4,15 @@ part of 'batchlist_cubit.dart';
 abstract class BatchlistState {}
 
 class BatchlistInitial extends BatchlistState {}
-class Fetching extends BatchlistState {}
+class BatchListFetching extends BatchlistState {}
 
-class FetchCompleted extends BatchlistState {
+class BatchFetchCompleted extends BatchlistState {
   final List data;
-  FetchCompleted({required this.data});
+  BatchFetchCompleted({required this.data});
 }
 
-class FetchError extends BatchlistState {
+class BatchListFetchError extends BatchlistState {
   final String msg;
 
-  FetchError(this.msg);
+  BatchListFetchError(this.msg);
 }

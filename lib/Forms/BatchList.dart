@@ -47,15 +47,15 @@ class _BatchListState extends State<BatchList> {
             flex: 25,
             child: BlocBuilder<BatchlistCubit, BatchlistState>(
               builder: (context, state) {
-                if (state is Fetching) {
+                if (state is BatchListFetching) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is FetchError) {
+                } else if (state is BatchListFetchError) {
                   return Center(
                     child: Text(state.msg),
                   );
-                } else if (state is FetchCompleted) {
+                } else if (state is BatchFetchCompleted) {
                   final List data = state.data;
                   return ListView.builder(
                       padding: EdgeInsets.only(top: 15),

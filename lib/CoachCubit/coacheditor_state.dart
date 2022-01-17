@@ -5,15 +5,15 @@ abstract class CoacheditorState {}
 
 class CoacheditorInitial extends CoacheditorState {}
 
-class Fetching extends CoacheditorState {}
+class CoachEditorFetching extends CoacheditorState {}
 
-class DataReady extends CoacheditorState {
+class CoachEditorDataReady extends CoacheditorState {
   final List<CoachDataModel> data;
-  DataReady({required this.data});
+  CoachEditorDataReady({required this.data});
 }
 
-class FetchError extends CoacheditorState {
+class CoachEditorFetchError extends CoacheditorState {
   final String msg;
 
-  FetchError(this.msg);
+  CoachEditorFetchError(this.msg);
 }

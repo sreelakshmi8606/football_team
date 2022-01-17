@@ -9,13 +9,13 @@ class CourselistCubit extends Cubit<CourselistState> {
   WebserviceHelper web = WebserviceHelper();
   final String url;
   void fetchData() async {
-    emit(Fetching());
+    emit(CourseListFetching());
     try {
       final List data = await web.getCourseList();
-      emit(FetchCompleted(data: data));
+      emit(CourseListFetchCompleted(data: data));
     } catch (e) {
       print(e.toString());
-      emit(FetchError(
+      emit(CourseListFetchError(
         e.toString(),
       ));
     }

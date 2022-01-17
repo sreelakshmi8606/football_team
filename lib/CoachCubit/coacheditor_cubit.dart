@@ -13,13 +13,13 @@ class CoacheditorCubit extends Cubit<CoacheditorState> {
   WebserviceHelper web = WebserviceHelper();
   final String url;
   void fetchData() async {
-    emit(Fetching());
+    emit(CoachEditorFetching());
     try {
       final List<CoachDataModel> data = (await web.getCoachEditor()).cast<CoachDataModel>();
-      emit(DataReady(data: data));
+      emit(CoachEditorDataReady(data: data));
     } catch (e) {
       print(e.toString());
-      emit(FetchError(
+      emit(CoachEditorFetchError(
         e.toString(),
       ));
     }

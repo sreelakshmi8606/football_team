@@ -9,13 +9,13 @@ class BatchlistCubit extends Cubit<BatchlistState> {
   WebserviceHelper web = WebserviceHelper();
   final String url;
   void fetchData() async {
-    emit(Fetching());
+    emit(BatchListFetching());
     try {
       final List data = await web.getBatchList();
-      emit(FetchCompleted(data: data));
+      emit(BatchFetchCompleted(data: data));
     } catch (e) {
       print(e.toString());
-      emit(FetchError(
+      emit(BatchListFetchError(
         e.toString(),
       ));
     }

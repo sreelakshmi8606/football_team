@@ -18,6 +18,9 @@ class Batches extends StatefulWidget {
 
 class _BatchesState extends State<Batches> {
   TextEditingController BatchController = TextEditingController();
+  TextEditingController CourseController = TextEditingController();
+  TextEditingController CoachController = TextEditingController();
+  TextEditingController AllocateDateController = TextEditingController();
   WebserviceHelper web = WebserviceHelper();
 
   final GlobalKey<FormState> _FormKey = GlobalKey<FormState>();
@@ -76,6 +79,72 @@ class _BatchesState extends State<Batches> {
                     SizedBox(
                       height: 20,
                     ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: TextFormField(
+                        validator: (value) {
+                          return Validate.txtValidator(value!);
+                        },
+                        onSaved: (String? value) {
+                          batches.Course = value!;
+                        },
+                        controller: CourseController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Course',
+                          hintStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black38),
+                          icon: Icon(
+                            Icons.batch_prediction_rounded,
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: TextFormField(
+                        validator: (value) {
+                          return Validate.txtValidator(value!);
+                        },
+                        onSaved: (String? value) {
+                          batches.Coach = value!;
+                        },
+                        controller: CoachController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Coach',
+                          hintStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black38),
+                          icon: Icon(
+                            Icons.batch_prediction_rounded,
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ])),
         )
       ]))),
@@ -84,6 +153,8 @@ class _BatchesState extends State<Batches> {
         onPressed: () async {
           if (_FormKey.currentState!.validate()) {}
 
+          batches.BatchName = BatchController.text;
+          batches.BatchName = BatchController.text;
           batches.BatchName = BatchController.text;
 
           print('Data : ${batches.toJson()}');

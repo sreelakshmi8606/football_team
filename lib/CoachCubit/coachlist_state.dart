@@ -4,15 +4,15 @@ part of 'coachlist_cubit.dart';
 abstract class CoachlistState {}
 
 class CoachlistInitial extends CoachlistState {}
-class Fetching extends CoachlistState {}
+class CoachListFetching extends CoachlistState {}
 
-class FetchCompleted extends CoachlistState {
+class CoachListFetchCompleted extends CoachlistState {
   final List data;
-  FetchCompleted({required this.data});
+  CoachListFetchCompleted({required this.data});
 }
 
-class FetchError extends CoachlistState {
+class CoachListFetchError extends CoachlistState {
   final String msg;
 
-  FetchError(this.msg);
+  CoachListFetchError(this.msg);
 }

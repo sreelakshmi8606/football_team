@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:football_team/Common/Validation.dart';
 import 'package:football_team/Common/WebService.dart';
 import 'package:football_team/Common/kboxdecor.dart';
+import 'package:football_team/DataModels/ActivityModel.dart';
 import 'package:football_team/DataModels/SessionDataModel.dart';
 
 class SessionEditor extends StatefulWidget {
   late String Session;
   late int duration;
+ late List<ActivityDataModel> Activity;
   @override
   _SessionEditorState createState() => _SessionEditorState();
 }

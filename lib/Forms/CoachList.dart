@@ -45,15 +45,15 @@ class _CoachListState extends State<CoachList> {
             flex: 25,
             child: BlocBuilder<CoachlistCubit, CoachlistState>(
               builder: (context, state) {
-                if (state is Fetching) {
+                if (state is CoachListFetching) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is FetchError) {
+                } else if (state is CoachListFetchError) {
                   return Center(
                     child: Text(state.msg),
                   );
-                } else if (state is FetchCompleted) {
+                } else if (state is CoachListFetchCompleted) {
                   final List data = state.data;
                   return ListView.builder(
                       padding: EdgeInsets.only(top: 15),

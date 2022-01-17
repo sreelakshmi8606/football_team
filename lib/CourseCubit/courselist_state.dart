@@ -5,15 +5,15 @@ abstract class CourselistState {}
 
 class CourselistInitial extends CourselistState {}
 
-class Fetching extends CourselistState {}
+class CourseListFetching extends CourselistState {}
 
-class FetchCompleted extends CourselistState {
+class CourseListFetchCompleted extends CourselistState {
   final List data;
-  FetchCompleted({required this.data});
+  CourseListFetchCompleted({required this.data});
 }
 
-class FetchError extends CourselistState {
+class CourseListFetchError extends CourselistState {
   final String msg;
 
-  FetchError(this.msg);
+  CourseListFetchError(this.msg);
 }

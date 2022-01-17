@@ -3,7 +3,7 @@ import 'dart:convert';
 class AttributeDataModel {
   String? Name;
   String? Type;
-  dynamic? Value;
+  int? Value;
   AttributeDataModel.empty();
   AttributeDataModel({
     this.Name,
@@ -14,7 +14,7 @@ class AttributeDataModel {
   AttributeDataModel copyWith({
     String? Name,
     String? Type,
-    dynamic? Value,
+    int? Value,
   }) {
     return AttributeDataModel(
       Name: Name ?? this.Name,
